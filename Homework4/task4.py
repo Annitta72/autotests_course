@@ -9,16 +9,14 @@
 
 def multiplication_chain(num):
     # Здесь нужно написать код
-    count_multy = 0
-    num_multy = 1
-    while num > 0:
-        digit = num % 10  # 39 % 10 = 9 (остаток)
-        num_multy *= digit  # присваивание переменной 1 * 9
-        num = num // 10  # 39 // 10 = 3
-        count_multy = count_multy + 1
-        if len(str(num)) == 1:
-            num = num_multy
-            num_multy = 1
+    count_multy, num_lst, mult = 0, [], 1
+    num_lst = [int(a) for a in str(num)]
+    while len(num_lst) != 1:
+        count_multy += 1
+        for x in range(len(num_lst)):
+            mult *= num_lst[x]
+        num_lst = [int(a) for a in str(mult)]
+        mult = 1
     return count_multy
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
