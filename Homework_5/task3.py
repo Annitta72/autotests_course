@@ -19,7 +19,21 @@
 
 
 def everything_for_your_cat(cats_data):
+    """
+    Функция, которая выводит одной строкой владельца и всех его питомцев
+    Args:
+        cats_data (list(tuple)): входной список кортежей
+
+    Returns:
+        str: результирующая строка (покупатель и все его питомцы)
+    """
     # Здесь нужно написать код
+    cats = {}
+    our_str = ''
+    for c in cats_data:
+        cats.setdefault(' '.join(c[2:]), []).append(', '.join(map(str, c[:2])))
+    for k, v in cats.items():
+        our_str += f"{k}: {'; '.join(v)}\n"
     return our_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
