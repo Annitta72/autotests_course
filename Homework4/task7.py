@@ -4,11 +4,9 @@
 
 def move_zeros(lst):
     # Здесь нужно написать код
-    x = 0
-    for i in range(len(lst)):
-        if lst[i] != 0:
-            lst[x], lst[i] = lst[i], lst[x]
-            x += 1
+    x = lst.count(0)  # Находим кол-во 0 в списке
+    lst = list(filter(None, lst))  # Удаление 0 функцией filter() в списке
+    lst.extend([0] * x)  # Добавление в кол-ве всех найденных 0 в конец списка
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

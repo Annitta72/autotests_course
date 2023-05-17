@@ -7,12 +7,10 @@
 
 def flatten_and_sort(array):
     # Здесь нужно написать код
-    result = []
-    for lst1 in array:
-        for lst2 in lst1:
-            result.append(lst2)
-    result_list = sorted(result)
-    return result_list
+    result_list = []  # Создание пустого списка
+    for lst in array:  # Цикл - каждый элемент (список) в списке array
+        result_list.extend(lst)  # Добавляем элемент (список) в список result_list
+    return sorted(result_list)  # Сортировка списка
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 

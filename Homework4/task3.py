@@ -8,12 +8,10 @@
 
 def sum_digits(num):
     # Здесь нужно написать код
-    our_sum = 0
-    while num > 0:
-        digit = num % 10
-        our_sum += digit
-        num = num // 10
-    return our_sum
+    # Смена типа переменной на строку str()
+    # Заполнение списка с перебором каждого элемента в строке (принятое число)
+    our_sum = [int(a) for a in str(num)]
+    return sum(our_sum)  # Вывод суммы цифр списка
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
