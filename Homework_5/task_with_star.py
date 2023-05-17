@@ -11,7 +11,23 @@
 
 
 def to_roman(val):
+    """
+    Функция, которая преобразует арабское число в римское
+    Args:
+        val (int): входящее число (арабское число)
+
+    Returns:
+        str: результирующая строка (римское число)
+    """
     # Здесь нужно написать код
+    roman_numbers = {'M': 1000, 'CM': 900, 'D': 500, 'CD': 400,
+                     'C': 100, 'XC': 90, 'L': 50, 'XL': 40,
+                     'X': 10, 'IX': 9, 'V': 5, 'IV': 4, 'I': 1}
+    roman_str = ''
+    for idx, v in roman_numbers.items():
+        while val >= v:
+            roman_str += idx
+            val -= v
     return roman_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
