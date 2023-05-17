@@ -3,8 +3,19 @@
 # сумму и среднее арифметическое с округлением до 2 знаков после запятой;
 
 from statistics import mean
+
+
 def get_list_info(lst):
     # Здесь пишем код
+    # Нахождение минимального значения
+    min_elem = min(lst)
+    # Нахождение максимального значения
+    max_elem = max(lst)
+    # Нахождение суммы элементов списка
+    sum_list = sum(lst)
+    # Нахождение среднеарифметического значения, используя модуль statistics и функцию mean()
+    # round(x, n) округление числа - x до n знаков после точки
+    average = round(mean(lst), 2)
     return min_elem, max_elem, sum_list, average
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

@@ -6,14 +6,14 @@
 
 def create_phone_number(num_tuple):
     # Здесь нужно написать код
-    a = list(num_tuple[:])  # Создаем список, заполняя его значениями из кортежа
+    num_tuple = list(num_tuple)
     # Добавление элемента на место в списке, сдвигая остальные элементы в конец списка
     # Добавление элемента на место в списке, сдвигая остальные элементы в конец списка
-    a.insert(0, '(')
-    a.insert(4, ') ')
-    a.insert(-4, '-')
+    num_tuple.insert(0, '(')
+    num_tuple.insert(4, ') ')
+    num_tuple.insert(-4, '-')
     # Собираем строку с помощью join, преобразуя не строковые элементы к строковым, используя функцию map
-    str_phone = "".join(map(str, a))
+    str_phone = "".join(map(str, num_tuple))
     return str_phone
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
