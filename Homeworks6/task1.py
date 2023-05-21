@@ -5,16 +5,26 @@
 # Напишите и вызовите функцию, которая будет изменять и возвращать эти переменные, на следующие значения:
 # number = 5
 # string = 'Hello, dear friend'
-#
 
 number = 1
 string = 'Hello'
 
 
 def global_changes():
+    """
+    Функция, которая изменяет и возвращает новые значения глобальным переменным
+
+    Returns:
+        int: результирующее число
+        str: результирующая строка
+    """
     # Здесь нужно написать код
+    global number, string
+    number, string = 5, 'Hello, dear friend'
+    return number, string
 
 
+global_changes()
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 assert number == 5, 'Переменная number должна иметь значение 5'
