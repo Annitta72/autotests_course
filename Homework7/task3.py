@@ -24,6 +24,106 @@
 # У класса должно быть СВОЙСТВО how_long, которое вычисляет время за прохождение маршрута по формуле max_speed/(4*path)
 
 # Здесь пишем код
+class PublicTransport:
+    """
+    Класс описывающий параметры общественного транспорта
+    """
+
+    def __init__(self, brand, engine_power, year, color, max_speed):
+        """
+        Конструктор с обязательными атрибутами класса общественного транспорта
+
+        :param brand: входящая строка - Марка транспорта
+        :param engine_power: входящее число - Мощность двигателя - ЗАЩИЩЕННЫЙ (protected)
+        :param year: входящее число - Год выпуска
+        :param color: входящая строка - Цвет
+        :param max_speed: входящее число - Максимальная скорость
+        """
+        self.brand = brand
+        self._engine_power = engine_power
+        self.year = year
+        self.color = color
+        self.max_speed = max_speed
+
+    @property
+    def info(self):
+        """
+        Свойство, которое выводить на печать информацию о: марке, цвете, годе выпуска и мощности двигателя
+
+        :return: результирующая строка с информацией о: марке, цвете, годе выпуска и мощности двигателя
+        """
+        return f'{self.brand}, {self.color}, {self.year}, {self._engine_power}'
+
+
+class Bus(PublicTransport):
+    """
+    Класс описывающий Автобусы, с унаследованием параметров класса общественного транспорта
+    """
+
+    def __init__(self, brand, engine_power, year, color, max_speed, passengers, park, fare):
+        """
+        Конструктор с обязательными атрибутами класса общественного транспорта и дополнительными атрибутами
+
+        :param passengers: входящее число - кол-во пассажиров
+
+        :param park: входящее число - Парк приписки автобуса - ПРИВАТНЫЙ (private)
+
+        :param fare: входящее число - Стоимость проезда - ЗАЩИЩЕННЫЙ (protected)
+        """
+        super(Bus, self).__init__(brand, engine_power, year, color, max_speed)
+        self.passengers = passengers
+        self.passengers = passengers
+        self.__park = park
+        self._fare = fare
+
+    @property
+    def park(self):
+        """
+        Свойство, которое возвращает номер парка автобуса
+# а при присвоении проверять номер парка, что он в диапазоне от 1000 до 9999
+        :return: результирующее число - номер парка автобуса
+        """
+        return self.__park
+
+    @park.setter
+    def park(self, park):
+        """
+        Свойство, которое при присвоении проверять номер парка, что он в диапазоне от 1000 до 9999
+
+        :return: логический результат проверки вхождения номера парка в диапазон от 1000 до 9999
+        """
+        self.__park = park
+        assert 1000 <= park <= 9999
+
+
+class Tram(PublicTransport):
+    """
+    Класс описывающий Трамваи, с унаследованием параметров класса общественного транспорта
+    """
+
+    def __init__(self, brand, engine_power, year, color, max_speed, route, path, fare):
+        """
+        Конструктор с обязательными атрибутами класса общественного транспорта и дополнительными атрибутами
+
+        :param route: входящее число - маршрут трамвая - ПРИВАТНЫЙ (private)
+
+        :param path: входящее число - длина маршрута
+
+        :param fare: входящее число - Стоимость проезда - ЗАЩИЩЕННЫЙ (protected)
+        """
+        super(Tram, self).__init__(brand, engine_power, year, color, max_speed)
+        self.__route = route
+        self.path = path
+        self._fare = fare
+
+    @property
+    def how_long(self):
+        """
+        Свойство, которое вычисляет время за прохождение маршрута по формуле max_speed/(4*path)
+
+        :return: результирующее число - время прохождения маршрута
+        """
+        return self.max_speed/(4 * self.path)
 
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
