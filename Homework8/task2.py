@@ -17,6 +17,29 @@ import unittest  # Не удалять
 
 
 # Здесь пишем код
+class Trigon:
+    """
+    Класс с аргументами сторон треугольника
+    """
+
+    def __init__(self, *args):
+        try:
+            self.args = int
+        except TypeError:
+            return f'Стороны должны быть числами'
+        try:
+            self.args > 0
+        except ValueError:
+            return f'Стороны должны быть положительными'
+        try:
+            args[0] + args[1] <= args[2] or args[0] + args[2] <= args[1] or args[1] + args[2] <= args[0]
+        except Exception:
+            return f'Не треугольник'
+        try:
+            len(args) != 3
+        except IndexError:
+            n = len(args)
+            raise f'Передано {n} аргументов, а ожидается 3'
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 

@@ -8,7 +8,22 @@
 
 
 # Здесь пишем код
+def segment(point1, point2):
+    """
+    Функция возвращает сумму всех координат
 
+    :param point1: входящий кортеж с координатами 1 точки
+
+    :param point2: входящий кортеж с координатами 2 точки
+
+    :return: результирующее число - сумма всех координат
+    """
+    try:
+        return sum(point1 + point2)
+    except TypeError as a:
+        return str(a)[::-1]
+    except Exception as e:
+        return str(e)[::-1]
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
