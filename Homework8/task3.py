@@ -8,7 +8,7 @@
 
 
 # Здесь пишем код
-def segment(point1, point2):
+def segment(point1: tuple, point2: tuple):
     """
     Функция возвращает сумму всех координат
 
@@ -19,11 +19,9 @@ def segment(point1, point2):
     :return: результирующее число - сумма всех координат
     """
     try:
-        return sum(point1 + point2)
-    except TypeError as a:
-        return str(a)[::-1]
+        return point1[0] + point1[1] + point2[0] + point2[1]
     except Exception as e:
-        return str(e)[::-1]
+        return e.args[0][::-1]
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
