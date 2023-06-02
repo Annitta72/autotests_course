@@ -8,7 +8,20 @@
 
 
 # Здесь пишем код
+def segment(point1: tuple, point2: tuple):
+    """
+    Функция возвращает сумму всех координат
 
+    :param point1: входящий кортеж с координатами 1 точки
+
+    :param point2: входящий кортеж с координатами 2 точки
+
+    :return: результирующее число - сумма всех координат
+    """
+    try:
+        return point1[0] + point1[1] + point2[0] + point2[1]
+    except Exception as e:
+        return e.args[0][::-1]
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
