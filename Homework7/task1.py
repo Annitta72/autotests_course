@@ -10,7 +10,43 @@
 # Segment((-2, -3), (4, -5)).y_axis_intersection() --> False
 
 # Здесь пишем код
+import math
+class Segment:
+    """
+    Класс описывающий координаты точек отрезка
+    """
 
+    def __init__(self, point1, point2):
+        """
+        Конструктор с обязательными атрибутами класса - координаты точек отрезка
+        :param point1: входной кортеж с координатами первой точки
+        :param point2: входной кортеж с координатами второй точки
+        """
+        self.x1 = point1[0]
+        self.y1 = point1[1]
+        self.x2 = point2[0]
+        self.y2 = point2[1]
+
+    def length(self):
+        """
+        Метод, который возвращает длину нашего отрезка, с округлением до 2 знаков после запятой
+        :return: результирующее вещественное число
+        """
+        return round(math.hypot(self.x2 - self.x1, self.y2 - self.y1), 2)
+
+    def x_axis_intersection(self):
+        """
+        Метод, который возвращает True, если отрезок пересекает ось абсцисс, иначе False
+        :return: логический результат, выполнения условий
+        """
+        return True if ((self.x1 >= 0) & (self.x2 <= 0)) or ((self.x1 <= 0) & (self.x2 >= 0)) else False
+
+    def y_axis_intersection(self):
+        """
+        Метод, который возвращает True, если отрезок пересекает ось ординат, иначе False
+        :return: логический результат, выполнения условий
+        """
+        return True if ((self.y1 >= 0) & (self.y2 <= 0)) or ((self.y1 <= 0) & (self.y2 >= 0)) else False
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
