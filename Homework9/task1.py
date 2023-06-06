@@ -4,7 +4,21 @@
 
 
 # Здесь пишем код
+import re
 
+with open('test_file/task1_data.txt', encoding='utf-8') as f:
+    """
+    Открываем файл и в каждой строке с помощью re.sub() находим и заменяем числа на пустую строку
+    """
+    s = ''
+    for i in f.readlines():
+        s += re.sub("[0-9]", "", i)
+
+with open('test_file/task1_answer.txt', 'w', encoding='utf-8') as f_2:
+    """
+    Создаем файл и записываем новую строку без чисел
+    """
+    f_2.write(s)
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
