@@ -6,6 +6,10 @@ import pytest
 
 
 @pytest.mark.id_check(1, 2, 3)
-def test():
+def test(request):
+    """
+    Вывод на печать, того что передано в маркер
+    """
     # Здесь пишем код
-    pass
+    mark = request.node.get_closest_marker('id_check')
+    print(*mark.args, sep='\n')

@@ -3,3 +3,28 @@
 # 2) Фикстуру для конкретного теста и используйте её не для всех тестов. Например, время выполнения теста.
 
 import pytest
+
+
+@pytest.mark.usefixtures('class_fixture')
+class Tests:
+    """
+    Класс тестирования фикступ
+    """
+
+    def test1(self):
+        """
+        Тест на сложение
+        """
+        assert 1 + 1 == 2
+
+    def test2(self):
+        """
+        Тест на вычитание
+        """
+        assert 5 - 5 == 0
+
+    def test3(self, test_fixture):
+        """
+        Тест на сравнение
+        """
+        assert 8 > 2
