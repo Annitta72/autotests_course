@@ -10,3 +10,14 @@ def all_division(*arg1):
     for i in arg1[1:]:
         division /= i
     return division
+
+
+@pytest.mark.parametrize('args', [
+                                pytest.param((5, 0), marks=pytest.mark.smoke),
+                                pytest.param((6, 2), marks=pytest.mark.skip),
+                                (5, 2),
+                                (-8, -2),
+                                (1, 0.5),
+                                ])
+def test1(args):
+    all_division(args)
